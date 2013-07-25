@@ -41,7 +41,7 @@ class PricesController < ApplicationController
   # POST /prices.json
   def create
     @price = Price.new(params[:price])
-
+    # binding.pry
     @multiplier = params[:price][:SFnumber].to_i * 10
     #@multiplier = Price.new(params[:SFnumber]) * 5
 
