@@ -42,8 +42,10 @@ class PricesController < ApplicationController
   def create
     @price = Price.new(params[:price])
     # binding.pry
-    @multiplier = params[:price][:SFnumber].to_i * 10
-    #@multiplier = Price.new(params[:SFnumber]) * 5
+    number = params[:price][:SFnumber].to_i * 10
+    @multiplier = Price.create(multiplier: number)
+
+    # @multiplier = Price.create(multiplier: params[:price][:SFnumber].to_i * 10)
 
     respond_to do |format|
       if @price.save

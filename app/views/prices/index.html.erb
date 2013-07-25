@@ -11,6 +11,7 @@
 <% @prices.each do |price| %>
   <tr>
     <td><%= price.SFnumber %></td>
+    <td><%= price.multiplier %></td>
     <td><%= link_to 'Show', price %></td>
     <td><%= link_to 'Edit', edit_price_path(price) %></td>
     <td><%= link_to 'Destroy', price, confirm: 'Are you sure?', method: :delete %></td>

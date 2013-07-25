@@ -1,3 +1,3 @@
 class Price < ActiveRecord::Base
-  attr_accessible :SFnumber
+  attr_accessible :SFnumber, :multiplier
 end
