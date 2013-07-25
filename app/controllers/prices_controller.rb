@@ -14,7 +14,7 @@ class PricesController < ApplicationController
   # GET /prices/1.json
   def show
     @price = Price.find(params[:id])
-
+    @multiplier = Price.find(params[:id])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @price }
@@ -35,17 +35,17 @@ class PricesController < ApplicationController
   # GET /prices/1/edit
   def edit
     @price = Price.find(params[:id])
+    @multiplier = Price.find(params[:id])
   end
 
   # POST /prices
   # POST /prices.json
   def create
-    @price = Price.new(params[:price])
-    # binding.pry
-    number = params[:price][:SFnumber].to_i * 10
-    @multiplier = Price.create(multiplier: number)
 
-    # @multiplier = Price.create(multiplier: params[:price][:SFnumber].to_i * 10)
+   @price = Price.new
+   @price.SFnumber = params[:price][:SFnumber]
+   @price.multiplier = params[:price][:SFnumber].to_i * 10
+  
 
     respond_to do |format|
       if @price.save
